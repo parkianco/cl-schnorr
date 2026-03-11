@@ -204,7 +204,7 @@
 ;;; SHA-256 (FIPS 180-4)
 ;;; ============================================================================
 
-(defconstant +sha256-k+
+(defparameter *sha256-k*
   #(#x428a2f98 #x71374491 #xb5c0fbcf #xe9b5dba5
     #x3956c25b #x59f111f1 #x923f82a4 #xab1c5ed5
     #xd807aa98 #x12835b01 #x243185be #x550c7dc3
@@ -330,7 +330,7 @@
                              (+ hh
                                 (sha256-big-sigma1 e)
                                 (sha256-ch e f g)
-                                (aref +sha256-k+ i)
+                                (aref *sha256-k* i)
                                 (aref w i)))
             for t2 = (logand #xffffffff
                              (+ (sha256-big-sigma0 a)
