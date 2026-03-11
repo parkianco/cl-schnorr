@@ -1,0 +1,28 @@
+cl-schnorr
+==========
+
+BIP340 Schnorr Signatures for secp256k1
+
+Copyright (c) 2024-2026 Parkian Company LLC. All rights reserved.
+
+This software is licensed under the BSD 3-Clause License.
+See the LICENSE file for full license text.
+
+This software implements:
+- BIP340: Schnorr Signatures for secp256k1
+  https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki
+
+- BIP341: Taproot: SegWit version 1 spending rules
+  https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki
+
+- FIPS 180-4: Secure Hash Standard (SHA-256)
+  https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf
+
+- SEC 2: Recommended Elliptic Curve Domain Parameters (secp256k1)
+  https://www.secg.org/sec2-v2.pdf
+
+The BIP340 test vectors are derived from:
+https://github.com/bitcoin/bips/blob/master/bip-0340/test-vectors.csv
+
+This is a clean-room implementation with no code derived from other
+cryptographic libraries.

@@ -1,0 +1,38 @@
+# ASDF/SBCL compiled files
+*.fasl
+*.lx64fsl
+*.dx64fsl
+*.wx64fsl
+*.abcl
+
+# Quicklisp local-projects symlinks
+quicklisp/
+
+# Editor files
+*~
+\#*\#
+.#*
+*.swp
+*.swo
+
+# IDE directories
+.idea/
+.vscode/
+*.sublime-*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# SLIME/SLY
+.slime-history.eld
+.sly-history.eld
+
+# Test output
+test-results/
+coverage/
+
+# Build artifacts
+build/
+dist/
