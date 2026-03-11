@@ -357,7 +357,7 @@
   "Compute SHA-256 hash of MESSAGE (byte vector). Returns 32-byte hash."
   (declare (type (simple-array (unsigned-byte 8) (*)) message))
   (let ((padded (sha256-pad-message message))
-        (h (copy-seq +sha256-h0+)))
+        (h (make-sha256-h0)))
     (declare (type (simple-array (unsigned-byte 32) (8)) h))
     ;; Process each 64-byte block
     (loop for i from 0 below (length padded) by 64

@@ -353,7 +353,7 @@
         (error "Invalid point: x-coordinate not on curve"))
       ;; Adjust y parity
       (let ((want-odd (= prefix #x03)))
-        (when (xor want-odd (oddp y))
+        (when (not (eq want-odd (oddp y)))
           (setf y (field-neg y))))
       (make-affine-point :x x :y y))))
 
