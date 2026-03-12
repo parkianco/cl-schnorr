@@ -7,34 +7,46 @@
 (in-package #:cl-schnorr)
 
 ;;; ============================================================================
+;;; Constant Definition Macro
+;;; ============================================================================
+;;; SBCL's defconstant requires EQL on reload, but bignums are not EQL
+;;; across compilation units. This macro uses EQUAL for safe redefinition.
+
+(defmacro define-constant (name value &optional doc)
+  "Define a constant, using EQUAL comparison for safe bignum redefinition."
+  `(defconstant ,name
+     (if (boundp ',name) (symbol-value ',name) ,value)
+     ,@(when doc (list doc))))
+
+;;; ============================================================================
 ;;; secp256k1 Curve Parameters
 ;;; ============================================================================
 ;;; Curve equation: y^2 = x^3 + 7 (mod p)
 ;;; This is a Koblitz curve with a = 0, b = 7
 
-(defconstant +secp256k1-p+
+(define-constant +secp256k1-p+
   #xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F
   "secp256k1 field prime: p = 2^256 - 2^32 - 977")
 
-(defconstant +secp256k1-n+
+(define-constant +secp256k1-n+
   #xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141
   "secp256k1 curve order (number of points on curve)")
 
-(defconstant +secp256k1-a+ 0
+(define-constant +secp256k1-a+ 0
   "secp256k1 curve parameter a (coefficient of x)")
 
-(defconstant +secp256k1-b+ 7
+(define-constant +secp256k1-b+ 7
   "secp256k1 curve parameter b (constant term)")
 
-(defconstant +secp256k1-gx+
+(define-constant +secp256k1-gx+
   #x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798
   "secp256k1 generator point x-coordinate")
 
-(defconstant +secp256k1-gy+
+(define-constant +secp256k1-gy+
   #x483ADA7726A3C4655DA4FBFC0E1108A8FD17B448A68554199C47D08FFB10D4B8
   "secp256k1 generator point y-coordinate")
 
-(defconstant +secp256k1-h+ 1
+(define-constant +secp256k1-h+ 1
   "secp256k1 cofactor (number of points / order)")
 
 ;;; ============================================================================
@@ -44,11 +56,11 @@
 ;;; lambda * P = (beta * x, y) where lambda^3 = 1 (mod n) and beta^3 = 1 (mod p)
 ;;; This enables ~2x speedup in scalar multiplication
 
-(defconstant +secp256k1-lambda+
+(define-constant +secp256k1-lambda+
   #x5363ad4cc05c30e0a5261c028812645a122e22ea20816678df02967c1b23bd72
   "GLV endomorphism scalar: lambda^3 = 1 (mod n)")
 
-(defconstant +secp256k1-beta+
+(define-constant +secp256k1-beta+
   #x7ae96a2b657c07106e64479eac3434e99cf0497512f58995c1396c28719501ee
   "GLV endomorphism field element: beta^3 = 1 (mod p)")
 
@@ -56,15 +68,15 @@
 ;;; For scalar k, find k1, k2 such that k*P = k1*P + k2*lambda*P
 ;;; with |k1|, |k2| ~ sqrt(n)
 
-(defconstant +secp256k1-glv-a1+
+(define-constant +secp256k1-glv-a1+
   #x3086d221a7d46bcde86c90e49284eb15
   "GLV lattice basis vector a1")
 
-(defconstant +secp256k1-glv-b1+
+(define-constant +secp256k1-glv-b1+
   #xe4437ed6010e88286f547fa90abfe4c3
   "GLV lattice basis vector b1 (negated)")
 
-(defconstant +secp256k1-glv-a2+
+(define-constant +secp256k1-glv-a2+
   #x114ca50f7a8e2f3f657c1108d9d44cfd8
   "GLV lattice basis vector a2")
 
