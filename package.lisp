@@ -78,6 +78,18 @@
    #:+secp256k1-gx+
    #:+secp256k1-gy+
 
+   ;; Curve internals (for testing/advanced use)
+   #:*secp256k1-generator*
+   #:*secp256k1-generator-jacobian*
+   #:affine-to-jacobian
+   #:jacobian-double
+   #:jacobian-to-affine
+   #:jacobian-infinity-p
+   #:scalar-multiply
+   #:ap-x
+   #:ap-y
+
    ;; Testing
    #:run-bip340-test-vectors
-   #:*test-mode-prng*))
+   #:*test-mode-prng*
+   #:*test-prng-state*))
