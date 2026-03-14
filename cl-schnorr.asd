@@ -8,7 +8,7 @@
   :description "BIP340 Schnorr signatures for secp256k1 - pure Common Lisp, zero dependencies"
   :author "Parkian Company LLC"
   :license "BSD-3-Clause"
-  :version "1.0.0"
+  :version "0.1.0"
   :homepage "https://github.com/parkian/cl-schnorr"
   :bug-tracker "https://github.com/parkian/cl-schnorr/issues"
 
@@ -26,7 +26,7 @@
      (:file "tagged-hash") ; BIP340/BIP341 tagged hashes
      (:file "schnorr"))))  ; Sign, verify, key tweaking
 
-  :in-order-to ((test-op (test-op #:cl-schnorr/test))))
+  :in-order-to ((asdf:test-op (test-op #:cl-schnorr/test))))
 
 (asdf:defsystem #:cl-schnorr/test
   :description "Tests for cl-schnorr"
@@ -36,7 +36,7 @@
   ((:module "test"
     :components
     ((:file "test-schnorr"))))
-  :perform (test-op (o c)
+  :perform (asdf:test-op (o c)
              (let ((result (uiop:symbol-call :cl-schnorr.test :run-tests)))
                (unless result
                  (error "Tests failed")))))
