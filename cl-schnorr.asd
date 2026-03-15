@@ -6,7 +6,7 @@
 
 (asdf:defsystem #:cl-schnorr
   :description "BIP340 Schnorr signatures for secp256k1 - pure Common Lisp, zero dependencies"
-  :author "Parkian Company LLC"
+  :author "Park Ian Co"
   :license "Apache-2.0"
   :version "0.1.0"
   :homepage "https://github.com/parkian/cl-schnorr"
