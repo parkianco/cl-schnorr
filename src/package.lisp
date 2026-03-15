@@ -28,7 +28,11 @@
 
   ;; Main API
   (:export
-   #:with-schnorr-timing
+   #:identity-list
+   #:flatten
+   #:map-keys
+   #:now-timestamp
+#:with-schnorr-timing
    #:schnorr-batch-process
    #:schnorr-health-check;; Signing and verification
    #:schnorr-sign
