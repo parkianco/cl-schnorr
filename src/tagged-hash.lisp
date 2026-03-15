@@ -1,5 +1,5 @@
 ;;;; Copyright (c) 2024-2026 Parkian Company LLC. All rights reserved.
-;;;; SPDX-License-Identifier: BSD-3-Clause
+;;;; SPDX-License-Identifier: Apache-2.0
 ;;;;
 ;;;; tagged-hash.lisp - BIP340/BIP341 tagged hash functions
 ;;;; Domain separation for Schnorr signatures and Taproot

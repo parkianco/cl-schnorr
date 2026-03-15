@@ -1,5 +1,5 @@
 ;;;; Copyright (c) 2024-2026 Parkian Company LLC. All rights reserved.
-;;;; SPDX-License-Identifier: BSD-3-Clause
+;;;; SPDX-License-Identifier: Apache-2.0
 ;;;;
 ;;;; util.lisp - Foundation utilities for cl-schnorr
 ;;;; SHA-256 (FIPS 180-4), byte conversion, modular arithmetic, constant-time ops

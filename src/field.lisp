@@ -1,5 +1,5 @@
 ;;;; Copyright (c) 2024-2026 Parkian Company LLC. All rights reserved.
-;;;; SPDX-License-Identifier: BSD-3-Clause
+;;;; SPDX-License-Identifier: Apache-2.0
 ;;;;
 ;;;; field.lisp - secp256k1 field constants and parameters
 ;;;; Defines the prime field Fp where p = 2^256 - 2^32 - 977
