@@ -28,7 +28,9 @@
 
   ;; Main API
   (:export
-   ;; Signing and verification
+   #:with-schnorr-timing
+   #:schnorr-batch-process
+   #:schnorr-health-check;; Signing and verification
    #:schnorr-sign
    #:schnorr-verify
    #:schnorr-batch-verify

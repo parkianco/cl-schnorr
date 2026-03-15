@@ -18,13 +18,10 @@
   :components
   ((:file "package")
    (:module "src"
-    :serial t
-    :components
-    ((:file "util")        ; SHA256, byte conversion, modular arithmetic
-     (:file "field")       ; secp256k1 field constants and operations
-     (:file "curve")       ; EC point operations in Jacobian coordinates
-     (:file "tagged-hash") ; BIP340/BIP341 tagged hashes
-     (:file "schnorr"))))  ; Sign, verify, key tweaking
+                :components ((:file "package")
+                             (:file "conditions" :depends-on ("package"))
+                             (:file "types" :depends-on ("package"))
+                             (:file "cl-schnorr" :depends-on ("package" "conditions" "types"))))))  ; Sign, verify, key tweaking
 
   :in-order-to ((asdf:test-op (test-op #:cl-schnorr/test))))
 
